@@ -5,6 +5,10 @@ from urllib.parse import urlparse
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
+def health_check(request):
+    return JsonResponse({'message': 'tryout api is running'}, status=200)
+
+@csrf_exempt
 def create_tryout(request):
     if request.method == 'POST':
         body_unicode = request.body.decode('utf-8')
